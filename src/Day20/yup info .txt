@@ -1,0 +1,91 @@
+Yup ----->>
+
+
+why use ?
+
+validate user inputs
+apply rules like required,minimum,pattern matching
+work perfectly with react-hook-form using yupResolver
+
+when to use ?
+on 
+user sign-up/login forms 
+on contact/feedback forms 
+on dynamic forms with multiple fields 
+in admin dashboards to validate product data 
+any time you want consist client-side validation 
+
+
+syntax ?
+const yupObj = yup.object().shape({
+    fieldName: yup.string(),
+})
+
+methods -------->>>
+
+.required(msg) -> field must not be empty
+.string() -> validate text/string input
+.number() -> validates number
+.min(n,"msg") -> min value or length 
+.max(n,"msg") -> max value or lenghth
+.email("msg") -> checks for valid email format use witth string 
+.url("msg") -> checks for a valid URL format\
+.matches(regrex,"msg") -> validates against a pattern like password or phone 
+.oneOf([ref],"msg") -> checks equality with other field 
+.boolean() -> validates true/false with checkbox 
+.test(name,msg,fn) -> custom validation 
+.typeError("msg") -> provides custom error if input type is wrong 
+
+
+.nullable() -> allows null as valid value 
+.default(val) -> set default value 
+.notOneOf([values],"msg") -> value must not match 
+.when() -> conditional validations yup.string().when('age' is: 18, then: yup.required() })
+.transform(fn) -> modify input before validation yup.string().transform(val => val.trim())
+
+✅ yup.string() methods
+Method	Use Case	Example
+.email("msg")	Must be valid email	yup.string().email()
+.min(length, "msg")	Minimum string length	yup.string().min(5)
+.max(length, "msg")	Maximum string length	yup.string().max(20)
+.length(len, "msg")	Exact string length	yup.string().length(10)
+.matches(regex, "msg")	Regex pattern match	yup.string().matches(/[A-Z]/)
+.trim()	Removes whitespace from ends	yup.string().trim()
+.lowercase()	Converts value to lowercase	yup.string().lowercase()
+.uppercase()	Converts value to uppercase	yup.string().uppercase()
+.url("msg")	Valid URL format	yup.string().url()
+.uuid("msg")	Valid UUID format	yup.string().uuid()
+
+✅ yup.number() methods
+Method	Use Case	Example
+.positive("msg")	Must be > 0	yup.number().positive()
+.negative("msg")	Must be < 0	yup.number().negative()
+.integer("msg")	Must be whole number	yup.number().integer()
+.min(n, "msg")	Minimum value	yup.number().min(18)
+.max(n, "msg")	Maximum value	yup.number().max(100)
+.moreThan(n)	Value must be greater than n	yup.number().moreThan(10)
+.lessThan(n)	Value must be less than n	yup.number().lessThan(1000)
+
+✅ yup.boolean() methods
+Method	Use Case	Example
+.oneOf([true])	Must be true (e.g. checkbox)	yup.boolean().oneOf([true], "Accept terms")
+
+✅ yup.array() methods
+Method	Use Case	Example
+.of(yupType)	Specify type of elements	yup.array().of(yup.string())
+.min(n)	Minimum number of items	yup.array().min(2)
+.max(n)	Maximum number of items	yup.array().max(5)
+.length(n)	Exact number of items	yup.array().length(3)
+.ensure()	Ensures always an array	yup.array().ensure()
+
+✅ yup.date() methods
+Method	Use Case	Example
+.min(date)	Date must be after min	yup.date().min(new Date())
+.max(date)	Date must be before max	yup.date().max(new Date("2025-01-01"))
+.default(date)	Set default date	yup.date().default(() => new Date())
+
+✅ yup.object() methods
+Method	Use Case	Example
+.shape({})	Define nested fields	yup.object().shape({ name: yup.string() })
+.noUnknown()	Disallow fields not in schema	yup.object().noUnknown()
+.strict()	Don't cast types automatically	yup.object().strict()

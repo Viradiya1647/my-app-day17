@@ -1,0 +1,77 @@
+
+📝 Task Description
+Create a small React app that allows a user to:
+
+Fill out a form with:
+Full Name
+Email
+Role
+Avatar URL (optional)
+Click a button to generate a profile card below the form.
+Display multiple profile cards if the user submits multiple entries.
+
+ 
+Setup
+Use Vite, Create React App, or CodeSandbox.
+Create basic folder structure:
+/src
+├── components/
+│   └── ProfileCard.tsx
+├── App.tsx
+└── index.tsx
+
+Create the Form
+In App.tsx:
+Use useState to store form fields.
+On form submission, store the user data in an array (profiles state).
+
+Create the ProfileCard Component
+Props:
+Display name, email, role, and avatar.
+If no avatar is provided, use a default image.
+
+Render Cards
+After form submission, map over profiles and render a ProfileCard for each.
+
+
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+
+
+yup library 
+popular validation library 
+to validate form data easiar to manage validation form 
+to install --->>> npm install yup
+(installed in this device)
+also 
+
+
+
+npm install react-hook-form
+npm install @hookform/resolvers yup
+
+
+
+
+zod library
+typescript schema declaration and validation library 
+that can be used in react projects to validate data structures 
+and provide custom validation logic.
+
+define stucture of data through shemas
+when combined with react hook, zod enables robust from validation
+by automating the validation process and minimizing the chance of human error.
+
+zod supports custom validation logic,
+allowing developers to create custom types
+by extending existing shema types using the .extend() method
+
+zod can be used to validate data fetched from API,
+ensuring that the data matches the expected shema
+handling complex data structures and generating from validation schemas
+
+to install --->>> npm install zod
+(installed in this device)
+
+

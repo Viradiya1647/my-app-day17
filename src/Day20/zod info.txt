@@ -1,0 +1,140 @@
+typescript - first schema vlidation library.
+similar to yup 
+simpler faster and often used with modern react apps 
+
+used to validate form data, API data, objects, arrays 
+
+
+
+
+-----------------
+npm install zod react-hook-form @hookform/resolverss 
+-----------------
+import { useForm } from 'react-hook-form 
+import { zodResolver } from '@hookform/resolvers/zod'
+import { z } from 'zod' 
+-----------------
+const zObject = z.object({
+    title: z.string(),
+})
+-----------------
+const {
+    reset,
+    register,
+    formState: { errors },
+    handleSubmit,
+} = useForm ({
+    resolver: zodResolver(zObject),
+})
+-----------------
+onSubmit same as yup
+-----------------
+forms fields are same as yup 
+-----------------
+
+
+
+
+
+
+basic methods:---
+-------------------------
+address: z.object({
+    street: ,
+    city: ,
+    zip: ,
+})
+-------------------------
+file upload 
+file: z 
+.custom((file)=>file instanceOf file, "file required.")
+.refine(file=>file.size < 2 * 2024 * 2024,"file must be < 2MB")
+.refine(file=>["img.png","img.pdf"].includes(file.type),"must be PDF of image")
+--------------------------
+array 
+tags: z.array(z.string().min()).min(1,"Atleas one tag required.")
+--------------------------
+dates startDate: z.coerce.date(),
+endDate: z.coerce.date().refine(
+    (end,ctx) => end > ctx.parent.startDate,
+    {message: "end date must be after start date"}
+)
+---------------------------
+conditional field
+z.object({
+    newsletterSubscribed: z.boolean(),
+    email: z.string().email().optional(),
+}).refine(data => {
+    if(Data.newsletterSubscribed) return !!data.email
+    return true
+},{
+    message: "email required when subsribed",
+    path: ["email"],
+})
+
+------------------------------------------------------------
+
+.literal("admin")
+only accept string ""admin"
+
+.enum(["small","medium","large"]) 
+must have one of these 
+
+.union([z.string(), z.number()])
+alows either string or number 
+
+.nullable()
+for optional database fields that can be null
+
+.optional()
+field is not required
+
+.default("guest")
+set default value if field is empty 
+
+.coerce.number()
+converts to number, '43' -> 43 
+
+.coerce.date()
+converts to date object, '2024-01-01' -> date object
+
+.record(z.string(),z.number())
+key value object with consistent typese
+a:1, b:2, c:3
+
+.tupple([z.string(), z.number()])
+fixed-length array with exat types
+
+.any()
+allows any value, use carefully 
+---------------------------------------------------------
+
+📘 Top 30 Most Used Zod Methods (Grouped for Clarity)
+Category	Zod Methods
+Primitives	z.string(), z.number(), z.boolean(), z.date(), z.bigint()
+Strings	.min(), .max(), .email(), .url(), .uuid(), .regex(), .length()
+Numbers	.min(), .max(), .positive(), .negative(), .int()
+Arrays	z.array(), .min(), .max(), .nonempty()
+Objects	z.object(), .shape()
+Enums & Literals	z.enum(), z.literal()
+Advanced Types	z.union(), z.intersection(), z.tuple(), z.record()
+Modifiers	.optional(), .nullable(), .default(), .refine(), .transform()
+Coercion	z.coerce.number(), z.coerce.string(), z.coerce.date()
+Fallback	z.any(), z.unknown(), z.never()
+
+⭐ Bonus: .refine() vs .transform()
+Method	Purpose	Example
+.refine()	Custom validation	z.string().refine(val => val.startsWith("A"))
+.transform()	Modify the value	z.string().transform(val => val.toUpperCase())
+
+✅ Summary: When to Use Zod
+Use case	What to use
+Required string	z.string().min(1)
+Email validation	z.string().email()
+Number with range	z.number().min(1).max(100)
+Conditional validation	.refine()
+Default value	.default(value)
+Convert types	z.coerce.number()
+Nested object	z.object({ ... }) 
+Select options	z.enum(["x","y","z"])
+

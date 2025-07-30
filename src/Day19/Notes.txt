@@ -1,0 +1,54 @@
+library
+1)yup
+
+pop validation library yup
+JS schema builder for runtime validation value passing and validation.
+
+
+shema
+a set of rules or constraints defined for form data validation
+
+shema can define that a field requiered, must be a string, must match a specific regular expression, must be a number within a certain range.
+
+commonly used with 
+react-hook-form and formik to simplify complex validation 
+
+login/signup forms
+profile or settings forms 
+checkout contact forms 
+anywhare you want to check user input 
+
+
+npm install yup
+npm install react-hook-form @hookform/resolvers
+
+
+
+Task 2: Validate a Contact Form Submission
+Description:
+Fields: name, email, message.
+name and message must be non-empty.
+email must be a valid email format.
+Use when: Handling a contact/feedback form on your website.
+
+
+import { useForm } from 'react-hook-form '
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup'
+
+
+//create schema with yup 
+const schema = yup.object().shape({
+    name: yup.string().required('is required.'),
+})
+
+//setup react hook form 
+const {
+    register,
+    handleSubmit,
+    reset,
+    formState: {errors},
+} = useForm({
+    resolvevr:yupResolver(schema)
+})
+

@@ -1,0 +1,11 @@
+cod is shortname of code used by API
+cod tells you API request was successful or not
+200 -> successful
+404 -> invalid 
+401 -> invalid API key 
+429 -> to many request / wait for upgrade API 
+500 => invalid server error
+
+
+for API
+//use axios insetad fetch

@@ -1,0 +1,284 @@
+/* Center the "Create New Profile" title in the middle of the screen */
+.profile-card-root {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f7f8fa;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.profile-main-component {
+    width: 100%;
+    max-width: 420px;
+    background: #fff;
+    border-radius: 22px;
+    box-shadow: 0 8px 32px rgba(60, 60, 120, 0.12);
+    padding: 32px 28px 24px 28px;
+    position: relative;
+    transition: box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: #2d2d4d;
+    margin: 0 auto 18px auto;
+    user-select: none;
+    transition: 
+        transform 0.5s cubic-bezier(.68,-0.55,.27,1.55),
+        font-size 0.5s cubic-bezier(.68,-0.55,.27,1.55),
+        top 0.5s cubic-bezier(.68,-0.55,.27,1.55);
+    position: relative;
+    background: #fff;
+    border-radius: 16px;
+    padding: 18px 32px;
+    box-shadow: 0 2px 16px rgba(60,60,120,0.10);
+    pointer-events: auto;
+    cursor: pointer;
+    /* Use pointer (hand) cursor only for title */
+    cursor: pointer;
+}
+
+.profile-title:hover {
+    background: #f0f4ff;
+    color: #3a5fff;
+    box-shadow: 0 4px 24px rgba(60,60,120,0.13);
+    transform: scale(1.08) rotate(-2deg);
+}
+
+.profile-title:active {
+    /* Keep pointer cursor for click */
+    cursor: pointer;
+}
+
+.profile-title.profile-title-animate {
+    /* When form is open, animate to top */
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, 0) scale(0.85);
+    font-size: 1.2rem;
+    z-index: 10;
+    transition: 
+        transform 0.5s cubic-bezier(.68,-0.55,.27,1.55),
+        font-size 0.5s cubic-bezier(.68,-0.55,.27,1.55),
+        top 0.5s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+.profile-form {
+    margin-top: 80px;
+    animation: formDropDown 0.7s cubic-bezier(.68,-0.55,.27,1.55);
+    background: #f7f8fa;
+    border-radius: 14px;
+    padding: 22px 18px 14px 18px;
+    box-shadow: 0 2px 12px rgba(60,60,120,0.07);
+    width: 100%;
+}
+
+@keyframes formDropDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-40px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.profile-form label {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 1rem;
+    color: #2d2d4d;
+}
+
+.profile-input {
+    width: 100%;
+    padding: 8px 12px;
+    margin-top: 4px;
+    border: 1.5px solid #dbeafe;
+    border-radius: 7px;
+    font-size: 1rem;
+    background: #fafdff;
+    transition: border 0.2s;
+}
+
+.profile-input:focus {
+    border: 1.5px solid #3a5fff;
+    outline: none;
+    background: #f0f4ff;
+}
+
+.profile-submit-btn {
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px 0;
+    background: linear-gradient(90deg, #3a5fff 60%, #6e8fff 100%);
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.profile-submit-btn:hover {
+    background: linear-gradient(90deg, #2d2d4d 60%, #3a5fff 100%);
+    transform: scale(1.04);
+}
+
+.profile-form p {
+    color: #e53e3e;
+    font-size: 0.95rem;
+    margin: 4px 0 0 0;
+}
+
+.profiles-list-title {
+    margin: 38px 0 12px 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2d2d4d;
+    user-select: none;
+    transition: color 0.2s;
+    text-align: left;
+}
+
+.profiles-list-title:hover {
+    color: #3a5fff;
+}
+
+.profiles-list {
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: #dbeafe #fff;
+    width: 100%;
+}
+
+.profile-item {
+    flex: 0 0 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fafdff;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(60,60,120,0.07);
+    padding: 12px 8px 8px 8px;
+    transition: box-shadow 0.2s, transform 0.2s;
+    position: relative;
+    min-width: 90px;
+    /* Use pointer hand for touch (one-fingered hand) */
+    cursor: pointer;
+    cursor: pointer;
+}
+
+.profile-item:hover {
+    box-shadow: 0 6px 24px rgba(60,60,120,0.13);
+    transform: translateY(-6px) scale(1.07);
+    background: #f0f4ff;
+}
+
+.profile-avtar-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.profile-avtar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2.5px solid #3a5fff;
+    background: #e0e7ff;
+    transition: border 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 6px rgba(60,60,120,0.08);
+    /* Remove grab cursor, use pointer hand arrow */
+    cursor: pointer;
+}
+
+.profile-avtar:hover {
+    border: 2.5px solid #2d2d4d;
+    box-shadow: 0 4px 16px rgba(60,60,120,0.13);
+    transform: scale(1.08) rotate(-2deg);
+}
+
+.profile-avtar:active {
+    cursor:  pointer;
+}
+
+.profile-name-div,
+.profile-email-div,
+.profile-role-div {
+    text-align: center;
+    margin-top: 4px;
+}
+
+.profile-name {
+    font-size: 1.08rem;
+    font-weight: 600;
+    color: #2d2d4d;
+    margin: 0;
+}
+
+.profile-email,
+.profile-role {
+    font-size: 0.97rem;
+    color: #3a5fff;
+    margin: 0;
+}
+
+.profile-name.empty,
+.profile-email.empty,
+.profile-role.empty {
+    color: #b0b0b0;
+    font-style: italic;
+}
+
+.profile-item > div:not(.profile-avtar-div) {
+    animation: profileDetailsPop 0.4s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+@keyframes profileDetailsPop {
+    0% {
+        opacity: 0;
+        transform: scale(0.92) translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .profile-main-component {
+        max-width: 98vw;
+        padding: 16px 4vw 12px 4vw;
+    }
+    .profiles-list {
+        gap: 10px;
+    }
+    .profile-item {
+        min-width: 70px;
+        padding: 8px 4px 6px 4px;
+    }
+    .profile-avtar {
+        width: 40px;
+        height: 40px;
+    }
+}

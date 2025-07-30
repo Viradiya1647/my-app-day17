@@ -1,0 +1,140 @@
+necessary to install react-router-dom every time create a new project ?
+
+npm install react-router-dom 
+
+It is a library used in React to create multiple pages in a single page application SPA without reloading the brouser.
+
+import :---
+js keyword to bring code from another file
+
+React :---
+default import from React library
+
+{} :---
+named import, getting only spacific part of react
+
+'react' :---
+name of package/module you're importing from 
+
+React is default react object, useState is function 
+
+
+
+
+if any error like 
+'react-scripts' is not recognized as an internal or external command,
+operable program or batch file.
+
+delete => node_modules and package-lock.json 
+run npm install 
+then npm start
+
+
+
+clickOutside :---
+custom hook that listens to clicks on the whole page/document 
+if user click outside of a specific element (ref)
+it runs callback function 
+
+to be continued....
+
+---------------------------------------------------------------------------
+
+useRef ?
+what is useRef 
+react hook that gives you a way to store a reference to something
+DOM element or value that doesn't re-render the component.
+
+const myRef = useRef(initialValue)
+
+myRef.current holds the actual value
+it doesnt change when UI updates 
+it survives re-renders
+
+DOM access
+
+when to use ?
+you want to -
+store values across renders without re-rendering
+access DOM node_modulesremember previous valuesdetect click outside or focus 
+
+
+access DOM elements, store mutable values, track previous state, track timers-intervals, scroll positions-animations
+
+useState() tracking or updating UI, want to UI re-render on change, writting full form logic, remember component status
+useEffect() fetching async data 
+
+
+
+console.log(myRef.current.value) // won't work before render
+
+const inputRef = useRef()
+inputRef.current.focus() // error: 'null'
+<input ref={inputRef} //atech properly 
+
+never declare inside 
+event handlers
+useEffect
+loops
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

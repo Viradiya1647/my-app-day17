@@ -1,0 +1,7 @@
+Scroll to Top Button
+Task: Show a “Scroll to Top” button after scrolling down a page.
+
+Online/Offline Status Indicator
+Task: Show user’s connection status with green/red dot.
+
+

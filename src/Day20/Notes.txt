@@ -1,0 +1,64 @@
+when we type input,
+react-hook-form tracks value automatically using register()
+
+yup is not directly used in the form, its connected via yupResolver()
+
+yup object is defining rules for every field inside .shape({ })
+
+each rule in a chain contains conditions like
+yup.email() checks for valid email format.
+
+yup stores this in objName as an object.
+when the form is submitted, the schema runs .validate()  and returns an error for any fiels that fails the rules.
+
+register() -->
+connects <input> to form. it tells the form to track this input.
+
+handleSubmit() -->          
+wraps your submit function and handles validation before calling it.
+
+reset() -->
+resets all input fields to default 
+
+formState.errors -->
+holds all the validation error messages.
+
+
+after press submit --->>
+react hook form checks if resolvver is present.
+yupResolver runs yup validation with the current form values.
+
+if any field fails, errors object gets filled else onSubmit() runs.
+
+
+
+build the form -->
+register(name) ->
+tells react hook form: track this input, store its values in name and validate it.
+
+errors.name.message ->
+if there's a validation error, show the message returned from the schema.
+
+
+submit handleer -->
+const onSubmit = (data) => {
+    console.log(data)
+    reset()
+}
+
+runs when you click the submit button.
+if validation passes it fives all field values to onSubmit(data) 
+
+if even one error exists, onSubmit() is not called.
+you can also use 
+reset({name:"",email:""})
+
+yup sets rules 
+yupResolver sends results to react-hook-form 
+useForm handles form logic 
+register connects input fields 
+errors shows messages if any
+handleSubmit runs validation before submission 
+
+
+

@@ -1,0 +1,77 @@
+using yup --->>
+
+Task 1: Validate a User Login Form
+Description:
+Ensure that the email field is not empty and is a valid email format.
+Ensure the password field has at least 6 characters.
+Use when: A user is logging in to your platform.
+
+Task 2: Validate a Contact Form Submission
+Description:
+Fields: name, email, message.
+name and message must be non-empty.
+email must be a valid email format.
+Use when: Handling a contact/feedback form on your website.
+
+Task 3: Validate a Signup Form with Password Confirmation
+Description:
+Fields: username, email, password, confirmPassword.
+All fields required.
+confirmPassword must match password.
+Use when: Registering a new user and confirming their password
+
+Task 4: Validate Age and Gender for a Profile Setup
+Description:
+Age must be a number between 18 and 100.
+Gender must be one of: 'male', 'female', 'other'.
+Use when: Completing a user profile setup after registration.
+
+Task 5: Validate Product Data Before Saving
+Description:
+Fields: title, price, inStock.
+title is required.
+price must be a positive number.
+inStock must be a boolean.
+Use when: Creating or updating product entries in a dashboard.
+
+
+
+ 
+using zod --->>
+
+Task 6: Validate an Address Form
+Description:
+Nested object: address { street, city, zip }.
+All fields are required.
+zip must be 5 digits.
+Use when: User enters shipping or billing address.
+
+ Task 7: Validate File Upload Input
+Description:
+Field: file.
+Validate that a file is provided.
+Ensure the file is of a certain type (e.g., PDF or image).
+Validate file size (e.g., less than 2MB).
+Use when: User uploads documents like resumes, profile pictures, etc.
+
+Task 8: Validate Array of Tags
+Description:
+Field: tags.
+Must be a non-empty array of strings.
+Each tag must be at least 2 characters.
+Use when: Tagging blog posts, projects, etc.
+
+Task 9: Validate Dates
+Description:
+Fields: startDate, endDate.
+Both must be valid dates.
+endDate must be after startDate.
+Use when: Creating events, bookings, or scheduling tasks.
+
+Task 10: Conditional Validation
+Description:
+Field: newsletterSubscribed (boolean).
+If true, then email must be provided and valid.
+Use when: Users can opt in to a newsletter, but email is optional otherwise.
+
+-----------------------------------------------------------------------------------------------
