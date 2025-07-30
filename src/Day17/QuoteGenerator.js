@@ -11,7 +11,7 @@ export default function QuoteGenerator() {
     setLoading(true);
     setErrorMsg("");
     try {
-      const response = await fetch(`${process.env.REACT_APP_QUOTE_API_URL}`);
+      const response = await fetch(process.env.REACT_APP_QUOTE_API_URL);
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
