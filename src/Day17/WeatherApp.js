@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../App.css";
 import axios from "axios";
 
@@ -7,6 +7,18 @@ export default function WeatherApp() {
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+
+  useEffect(() => {
+    const delaySearch = setTimeout(() => {
+      if(city.trim()) {
+        fetchWeather()
+      } else {
+        setWeather(null);
+        setErrorMsg("Please enter a city name.");
+      }
+    },800)
+    return () => clearTimeout(delaySearch);
+  },[city])
 
   const fetchWeather = async () => {
     if (!city.trim()) {
