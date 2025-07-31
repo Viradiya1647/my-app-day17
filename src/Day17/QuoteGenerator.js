@@ -14,6 +14,7 @@ export default function QuoteGenerator() {
       const response = await fetch("https://api.quotable.io/random");
       if (!response.ok) {
         console.log("vcbhbxvbcxhcvzxhc")
+        console.log("vcbhbxvbcxhcvzxhc")
         throw new Error("Network response was not ok");
       }
       const data = await response.json();
